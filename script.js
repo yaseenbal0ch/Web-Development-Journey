@@ -173,9 +173,10 @@ console.log(student.course);
 
 let heading = document.querySelector("h1");
 
-console.log(heading);
-
-heading.style.color = "purple";
+if (heading) {
+    console.log(heading);
+    heading.style.color = "purple";
+}
 
 
 // ==========================
@@ -206,9 +207,9 @@ heading.addEventListener("click", function(){
 // Day 13 : Forms
 // ==========================
 
-let username = "Muhammad Yaseen";
+let studentName = "Muhammad Yaseen";
 
-if(username !== ""){
+if(studentName !== ""){
 
     console.log("Form Submitted Successfully");
 
