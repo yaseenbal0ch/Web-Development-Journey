@@ -1,0 +1,223 @@
+/*
+====================================
+CSS COMPLETED
+Day 1: CSS Basics
+Day 2: Colors
+Day 3: Fonts
+Part 1
+====================================
+*/
+
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Body */
+body{
+    background-color:#f5f5f5;
+    color:#333333;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.8;
+    padding:20px;
+}
+
+/* Main Heading */
+h1{
+    color:#0d6efd;
+    text-align:center;
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+/* Section Headings */
+h2{
+    color:#198754;
+    margin-top:30px;
+    margin-bottom:10px;
+    border-bottom:2px solid #198754;
+    padding-bottom:5px;
+}
+
+/* Paragraphs */
+p{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+/* Horizontal Line */
+hr{
+    margin:25px 0;
+    border:1px solid #cccccc;
+}
+
+/* Bold Text */
+b{
+    color:#dc3545;
+}
+
+/* Italic Text */
+i{
+    color:#6f42c1;
+}
+
+/* Unordered List */
+ul{
+    margin-left:25px;
+}
+
+/* Ordered List */
+ol{
+    margin-left:25px;
+}
+
+/* List Items */
+li{
+    margin:8px 0;
+}
+
+/* Links */
+a{
+    color:#0d6efd;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover{
+    color:red;
+    text-decoration:underline;
+}
+/* ===========================
+   Day 4: Borders
+   Day 5: Margin & Padding
+   Day 6: Width & Shadow
+   Part 2
+=========================== */
+
+/* Horizontal Line */
+hr{
+    margin:20px 0;
+    border:1px solid #cccccc;
+}
+
+/* Sections */
+section{
+    background:white;
+    margin:20px 0;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Skills List */
+ul{
+    margin-left:25px;
+    margin-top:10px;
+}
+
+li{
+    margin:8px 0;
+}
+
+/* Ordered List */
+ol{
+    margin-left:25px;
+    margin-top:10px;
+}
+
+/* Contact Box */
+footer{
+    margin-top:30px;
+    padding:15px;
+    text-align:center;
+    background:#222;
+    color:white;
+    border-radius:8px;
+}
+
+/* Images (Future Use) */
+img{
+    max-width:100%;
+    border-radius:10px;
+}
+
+/* Buttons (Future Use) */
+button{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0b5ed7;
+}
+/* ===========================
+   CSS COMPLETED
+   Day 7: Hover Effects
+   Day 8: Display & Text
+   Day 9: Responsive Design
+   Day 10: Final CSS Project
+   Part 3
+=========================== */
+
+/* Links */
+a{
+    color:#0d6efd;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover{
+    color:red;
+    text-decoration:underline;
+}
+
+/* Paragraph */
+p{
+    margin:10px 0;
+}
+
+/* Responsive Design */
+@media (max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    h2{
+        font-size:24px;
+    }
+
+    p,
+    li,
+    a{
+        font-size:16px;
+    }
+
+    footer{
+        font-size:14px;
+    }
+}
+
+/* ===========================
+   CSS COURSE COMPLETED ✅
+   Day 1 : CSS Basics
+   Day 2 : Colors
+   Day 3 : Fonts
+   Day 4 : Borders
+   Day 5 : Margin & Padding
+   Day 6 : Width & Shadow
+   Day 7 : Hover Effects
+   Day 8 : Display & Text
+   Day 9 : Responsive Design
+   Day 10: Final CSS Project
+=========================== */
