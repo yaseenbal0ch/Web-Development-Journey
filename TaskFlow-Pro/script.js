@@ -25,7 +25,8 @@ const highPriority = document.getElementById("highPriority");
 
 // Empty Array
 
-let tasks = [];
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
 // ===============================
 // Load Tasks From Local Storage
 // ===============================
