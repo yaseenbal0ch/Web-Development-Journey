@@ -60,36 +60,40 @@ taskForm.addEventListener("submit", function (e) {
     dueDate.value = "";
 
 });
-// ==============================
+// ======================================
 // Display Tasks
-// ==============================
+// ======================================
 
 function displayTasks() {
-
     tasksContainer.innerHTML = "";
 
-    tasks.forEach(task => {
+    tasks.forEach((task) => {
 
         tasksContainer.innerHTML += `
+            <div class="task-card ${task.completed ? "completed" : ""}">
 
-        <div class="task">
+                <div class="task-content">
+                    <h3>${task.title}</h3>
+                    <p>📅 ${task.dueDate}</p>
+                    <p>⭐ ${task.priority}</p>
+                </div>
 
-            <div>
+                <div class="task-actions">
+                    <button onclick="toggleTask(${task.id})">
+                        ${task.completed ? "↩ Undo" : "✅ Complete"}
+                    </button>
 
-                <h3>${task.title}</h3>
-
-                <p>📅 ${task.dueDate}</p>
-
-                <p>⭐ ${task.priority}</p>
+                    <button onclick="deleteTask(${task.id})">
+                        🗑 Delete
+                    </button>
+                </div>
 
             </div>
-
-        </div>
-
         `;
 
     });
 
+    updateStats();
 }
 // ==============================
 // Update Statistics
