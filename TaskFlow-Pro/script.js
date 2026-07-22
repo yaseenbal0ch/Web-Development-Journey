@@ -26,6 +26,15 @@ const highPriority = document.getElementById("highPriority");
 // Empty Array
 
 let tasks = [];
+// ===============================
+// Load Tasks From Local Storage
+// ===============================
+
+const savedTasks = localStorage.getItem("tasks");
+
+if (savedTasks) {
+    tasks = JSON.parse(savedTasks);
+}
 
 console.log("TaskFlow Pro Started Successfully 🚀");
 // ==============================
@@ -51,6 +60,7 @@ taskForm.addEventListener("submit", function (e) {
     };
 
     tasks.push(newTask);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     displayTasks();
     updateStats();
     console.log(tasks);
@@ -117,9 +127,23 @@ function updateStats() {
 function deleteTask(id){
 
     tasks = tasks.filter(task => task.id !== id);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 
     displayTasks();
 
     updateStats();
 
+}
+function toggleComplete(id) {
+    tasks = tasks.map(task => {
+        if (task.id === id) {
+            task.completed = !task.completed;
+        }
+        return task;
+    });
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    displayTasks();
+    updateStats();
 }
