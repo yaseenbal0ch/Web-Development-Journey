@@ -1,0 +1,453 @@
+/* ===========================
+   Google Font
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===========================
+   Reset
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===========================
+   Body
+=========================== */
+
+body{
+    background:#f4f7fc;
+    color:#222;
+    min-height:100vh;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 8%;
+
+    background:white;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+}
+
+.logo h1{
+
+    color:#4f46e5;
+
+    font-size:32px;
+}
+
+.logo p{
+
+    color:#666;
+
+    margin-top:5px;
+}
+
+.header-actions{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+}
+
+.header-actions input{
+
+    width:280px;
+
+    padding:12px 15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#eef2ff;
+
+    outline:none;
+
+    font-size:15px;
+}
+
+#themeBtn{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#4f46e5;
+
+    color:white;
+
+    font-size:20px;
+
+    transition:.3s;
+}
+
+#themeBtn:hover{
+
+    transform:scale(1.1);
+}
+/* ===========================
+   Main Container
+=========================== */
+
+.container{
+
+    width:90%;
+    max-width:1300px;
+
+    margin:40px auto;
+}
+
+/* ===========================
+   Welcome Section
+=========================== */
+
+.welcome{
+
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+
+    color:white;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    margin-bottom:35px;
+
+    box-shadow:0 15px 35px rgba(79,70,229,.25);
+}
+
+.welcome h2{
+
+    font-size:36px;
+
+    margin-bottom:10px;
+}
+
+.welcome p{
+
+    font-size:17px;
+
+    opacity:.95;
+}
+
+/* ===========================
+   Statistics Cards
+=========================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+
+    margin-bottom:40px;
+}
+
+.card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 35px rgba(79,70,229,.20);
+}
+
+.card h3{
+
+    color:#666;
+
+    font-size:17px;
+
+    margin-bottom:15px;
+}
+
+.card h1{
+
+    color:#4f46e5;
+
+    font-size:42px;
+}
+/* ===========================
+   Add Task Section
+=========================== */
+
+.add-task{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    margin-bottom:35px;
+}
+
+.add-task h2{
+
+    margin-bottom:25px;
+
+    color:#4f46e5;
+
+    font-size:28px;
+}
+
+/* ===========================
+   Task Form
+=========================== */
+
+#taskForm{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr auto;
+
+    gap:15px;
+}
+
+#taskForm input,
+#taskForm select{
+
+    padding:15px;
+
+    border:2px solid #e5e7eb;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+#taskForm input:focus,
+#taskForm select:focus{
+
+    border-color:#4f46e5;
+
+    box-shadow:0 0 10px rgba(79,70,229,.20);
+}
+
+#taskForm button{
+
+    background:#4f46e5;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 25px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+#taskForm button:hover{
+
+    background:#4338ca;
+
+    transform:translateY(-3px);
+}
+
+/* ===========================
+   Filter Buttons
+=========================== */
+
+.filter{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+    flex-wrap:wrap;
+}
+
+.filter button{
+
+    background:white;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.filter button:hover{
+
+    background:#4f46e5;
+
+    color:white;
+}
+/* ===========================
+   Task List
+=========================== */
+
+.task-list{
+
+    background:#ffffff;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    margin-bottom:35px;
+}
+
+.task-list h2{
+
+    color:#4f46e5;
+
+    margin-bottom:25px;
+}
+
+#tasks{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+}
+
+/* ===========================
+   Task Card
+=========================== */
+
+.task{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px;
+
+    border-left:6px solid #4f46e5;
+
+    border-radius:15px;
+
+    background:#f8f9ff;
+
+    transition:.3s;
+}
+
+.task:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.12);
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer{
+
+    text-align:center;
+
+    padding:25px;
+
+    color:#666;
+
+    font-size:15px;
+}
+
+/* ===========================
+   Mobile Responsive
+=========================== */
+
+@media(max-width:768px){
+
+    .header{
+
+        flex-direction:column;
+
+        gap:20px;
+    }
+
+    .header-actions{
+
+        width:100%;
+
+        flex-direction:column;
+    }
+
+    .header-actions input{
+
+        width:100%;
+    }
+
+    #taskForm{
+
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+
+        grid-template-columns:1fr;
+    }
+}

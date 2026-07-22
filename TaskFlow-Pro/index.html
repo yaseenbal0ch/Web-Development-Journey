@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow Pro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <h1>TaskFlow Pro</h1>
+            <p>Smart Productivity Dashboard</p>
+        </div>
+
+        <div class="header-actions">
+
+            <input
+                type="text"
+                id="searchTask"
+                placeholder="Search tasks...">
+
+            <button id="themeBtn">
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- Welcome -->
+        <section class="welcome">
+
+            <h2>Welcome Back 👋</h2>
+
+            <p>
+                Organize your work, stay productive,
+                and achieve your daily goals.
+            </p>
+
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="card">
+                <h3>Total Tasks</h3>
+                <h1 id="totalTasks">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Completed</h3>
+                <h1 id="completedTasks">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Pending</h3>
+                <h1 id="pendingTasks">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>High Priority</h3>
+                <h1 id="highPriority">0</h1>
+            </div>
+
+        </section>
+
+        <!-- Add Task -->
+        <section class="add-task">
+
+            <h2>Add New Task</h2>
+
+            <form id="taskForm">
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter task title"
+                    required>
+
+                <select id="priority">
+
+                    <option value="Low">
+                        Low Priority
+                    </option>
+
+                    <option value="Medium">
+                        Medium Priority
+                    </option>
+
+                    <option value="High">
+                        High Priority
+                    </option>
+
+                </select>
+
+                <input
+                    type="date"
+                    id="dueDate">
+
+                <button type="submit">
+                    Add Task
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Filter -->
+        <section class="filter">
+
+            <button>All</button>
+            <button>Completed</button>
+            <button>Pending</button>
+
+        </section>
+
+        <!-- Task List -->
+
+        <section class="task-list">
+
+            <h2>Your Tasks</h2>
+
+            <div id="tasks">
+
+                <!-- JavaScript Tasks Here -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 TaskFlow Pro | Developed by Muhammad Yaseen
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

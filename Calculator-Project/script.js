@@ -10,20 +10,24 @@ buttons.forEach(button => {
         const value = button.innerText;
 
         if (value === "C") {
+
             expression = "";
             display.value = "";
+
         }
 
         else if (value === "=") {
 
             try {
+
                 expression = eval(expression).toString();
                 display.value = expression;
-            }
 
-            catch {
+            } catch {
+
                 display.value = "Error";
                 expression = "";
+
             }
 
         }
