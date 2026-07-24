@@ -77,7 +77,7 @@ function displayTasks(filteredTasks = tasks) {
     });
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    updateStars();
+    updateStats();
 
 }
 function deleteTask(id) {
