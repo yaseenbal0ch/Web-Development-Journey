@@ -4,7 +4,7 @@ const taskForm = document.getElementById("taskForm");
 const taskInput = document.getElementById("taskInput");
 const priority = document.getElementById("priority");
 const dueDate = document.getElementById("dueDate");
-const tasksContainer = document.getElementById("tasks");
+const tasksContainer = document.getElementById("tasksContainer");
 const searchInput = document.getElementById("searchInput");
 const allBtn = document.getElementById("allBtn");
 const completedBtn = document.getElementById("completedBtn");
@@ -30,38 +30,6 @@ taskForm.addEventListener("submit", function (e) {
     displayTasks();
 });
 
-function displayTasks(filteredTasks = tasks) {
-
-    tasksContainer.innerHTML = "";
-
-    filteredTasks.forEach(task => {
-
-    tasks.forEach(task => {
-
-        tasksContainer.innerHTML += `
-        <div class="task-card">
-            <h3>${task.title}</h3>
-
-            <p>Priority: ${task.priority}</p>
-
-            <p>Due: ${task.dueDate}</p>
-
-            <button onclick="toggleComplete(${task.id})">
-                ${task.completed ? "Completed ✅" : "Complete"}
-            </button>
-
-            <button onclick="deleteTask(${task.id})">
-                Delete
-            </button>
-        </div>
-        `;
-    });
-    <button onclick="editTask(${task.id})">
-    Edit
-</button>
-
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
 
 function toggleComplete(id) {
 
@@ -76,7 +44,41 @@ function toggleComplete(id) {
 
     displayTasks();
 }
+function displayTasks(filteredTasks = tasks) {
 
+    tasksContainer.innerHTML = "";
+
+    filteredTasks.forEach(task => {
+
+        tasksContainer.innerHTML += `
+        <div class="task-card">
+
+            <h3>${task.title}</h3>
+
+            <p><strong>Priority:</strong> ${task.priority}</p>
+
+            <p><strong>Due Date:</strong> ${task.dueDate}</p>
+
+            <button onclick="toggleComplete(${task.id})">
+                ${task.completed ? "Completed ✅" : "Complete"}
+            </button>
+
+            <button onclick="editTask(${task.id})">
+                Edit
+            </button>
+
+            <button onclick="deleteTask(${task.id})">
+                Delete
+            </button>
+
+        </div>
+        `;
+
+    });
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+
+}
 function deleteTask(id) {
 
     tasks = tasks.filter(task => task.id !== id);
