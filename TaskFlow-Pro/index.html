@@ -119,9 +119,11 @@
         <!-- Filter -->
         <section class="filter">
 
-            <button>All</button>
-            <button>Completed</button>
-            <button>Pending</button>
+            <button id="allBtn">All</button>
+
+            <button id="completedBtn">Completed</button>
+
+            <button id="pendingBtn">Pending</button>
 
         </section>
 
@@ -130,6 +132,10 @@
         <section class="task-list">
 
             <h2>Your Tasks</h2>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search tasks...">
 
             <div id="tasksContainer" class="tasks-grid"></div>
 

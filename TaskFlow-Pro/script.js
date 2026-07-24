@@ -1,150 +1,165 @@
-// ===============================
-// TaskFlow Pro
-// Developed by Muhammad Yaseen
-// ===============================
-
-// HTML Elements
-
-const taskForm = document.getElementById("taskForm");
-
-const taskInput = document.getElementById("taskInput");
-
-const priority = document.getElementById("priority");
-
-const dueDate = document.getElementById("dueDate");
-
-const tasksContainer = document.getElementById("tasksContainer");
-
-const totalTasks = document.getElementById("totalTasks");
-
-const completedTasks = document.getElementById("completedTasks");
-
-const pendingTasks = document.getElementById("pendingTasks");
-
-const highPriority = document.getElementById("highPriority");
-
-// Empty Array
-
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// ===============================
-// Load Tasks From Local Storage
-// ===============================
-
-const savedTasks = localStorage.getItem("tasks");
-
-if (savedTasks) {
-    tasks = JSON.parse(savedTasks);
-}
-
-console.log("TaskFlow Pro Started Successfully 🚀");
-// ==============================
-// Add New Task
-// ==============================
+const taskForm = document.getElementById("taskForm");
+const taskInput = document.getElementById("taskInput");
+const priority = document.getElementById("priority");
+const dueDate = document.getElementById("dueDate");
+const tasksContainer = document.getElementById("tasks");
+const searchInput = document.getElementById("searchInput");
+const allBtn = document.getElementById("allBtn");
+const completedBtn = document.getElementById("completedBtn");
+const pendingBtn = document.getElementById("pendingBtn");
 
 taskForm.addEventListener("submit", function (e) {
-
     e.preventDefault();
 
-    const newTask = {
-
+    const task = {
         id: Date.now(),
-
         title: taskInput.value,
-
         priority: priority.value,
-
         dueDate: dueDate.value,
-
         completed: false
-
     };
 
-    tasks.push(newTask);
+    tasks.push(task);
+
     localStorage.setItem("tasks", JSON.stringify(tasks));
+
+    taskForm.reset();
+
     displayTasks();
-    updateStats();
-    console.log(tasks);
-
-    taskInput.value = "";
-
-    dueDate.value = "";
-
 });
-// ======================================
-// Display Tasks
-// ======================================
 
-function displayTasks() {
+function displayTasks(filteredTasks = tasks) {
+
     tasksContainer.innerHTML = "";
 
-    tasks.forEach((task) => {
+    filteredTasks.forEach(task => {
+
+    tasks.forEach(task => {
 
         tasksContainer.innerHTML += `
-            <div class="task-card ${task.completed ? "completed" : ""}">
+        <div class="task-card">
+            <h3>${task.title}</h3>
 
-                <div class="task-content">
-                    <h3>${task.title}</h3>
-                    <p>📅 ${task.dueDate}</p>
-                    <p>⭐ ${task.priority}</p>
-                </div>
+            <p>Priority: ${task.priority}</p>
 
-                <div class="task-actions">
-                    <button onclick="toggleTask(${task.id})">
-                        ${task.completed ? "↩ Undo" : "✅ Complete"}
-                    </button>
+            <p>Due: ${task.dueDate}</p>
 
-                    <button onclick="deleteTask(${task.id})">
-                        🗑 Delete
-                    </button>
-                </div>
+            <button onclick="toggleComplete(${task.id})">
+                ${task.completed ? "Completed ✅" : "Complete"}
+            </button>
 
-            </div>
+            <button onclick="deleteTask(${task.id})">
+                Delete
+            </button>
+        </div>
         `;
-
     });
+    <button onclick="editTask(${task.id})">
+    Edit
+</button>
 
-    updateStats();
-}
-// ==============================
-// Update Statistics
-// ==============================
-
-function updateStats() {
-
-    totalTasks.textContent = tasks.length;
-
-    completedTasks.textContent = tasks.filter(task => task.completed).length;
-
-    pendingTasks.textContent = tasks.filter(task => !task.completed).length;
-
-    highPriority.textContent = tasks.filter(task => task.priority === "High").length;
-
-}
-// ==============================
-// Delete Task
-// ==============================
-
-function deleteTask(id){
-
-    tasks = tasks.filter(task => task.id !== id);
     localStorage.setItem("tasks", JSON.stringify(tasks));
-
-    displayTasks();
-
-    updateStats();
-
 }
+
 function toggleComplete(id) {
+
     tasks = tasks.map(task => {
+
         if (task.id === id) {
             task.completed = !task.completed;
         }
+
         return task;
     });
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    displayTasks();
+}
+
+function deleteTask(id) {
+
+    tasks = tasks.filter(task => task.id !== id);
 
     displayTasks();
-    updateStats();
 }
+function editTask(id) {
+
+    const task = tasks.find(task => task.id === id);
+
+    const updatedTitle = prompt("Edit Task", task.title);
+
+    if (updatedTitle !== null && updatedTitle.trim() !== "") {
+
+        task.title = updatedTitle.trim();
+
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+
+        displayTasks();
+
+    }
+}
+
+displayTasks();
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function clearAllTasks() {
+    if (confirm("Are you sure you want to delete all tasks?")) {
+        tasks = [];
+        saveTasks();
+        displayTasks();
+    }
+}
+
+function searchTasks(keyword) {
+    keyword = keyword.toLowerCase();
+
+    const filtered = tasks.filter(task =>
+        task.title.toLowerCase().includes(keyword)
+    );
+
+    tasksContainer.innerHTML = "";
+
+    filtered.forEach(task => {
+        tasksContainer.innerHTML += `
+        <div class="task-card">
+            <h3>${task.title}</h3>
+            <p>Priority: ${task.priority}</p>
+            <p>Due: ${task.dueDate}</p>
+        </div>
+        `;
+    });
+}
+searchInput.addEventListener("input", () => {
+
+    const keyword = searchInput.value.toLowerCase();
+
+    const filtered = tasks.filter(task =>
+        task.title.toLowerCase().includes(keyword)
+    );
+
+    displayTasks(filtered);
+
+});
+
+allBtn.addEventListener("click", () => {
+    displayTasks(tasks);
+});
+
+completedBtn.addEventListener("click", () => {
+
+    displayTasks(
+        tasks.filter(task => task.completed)
+    );
+
+});
+
+pendingBtn.addEventListener("click", () => {
+
+    displayTasks(
+        tasks.filter(task => !task.completed)
+    );
+
+});
