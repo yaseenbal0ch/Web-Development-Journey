@@ -77,6 +77,7 @@ function displayTasks(filteredTasks = tasks) {
     });
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    updateStars();
 
 }
 function deleteTask(id) {
@@ -165,3 +166,19 @@ pendingBtn.addEventListener("click", () => {
     );
 
 });
+function updateStats() {
+
+    document.getElementById("totalTasks").textContent = tasks.length;
+
+    document.getElementById("completedTasks").textContent =
+        tasks.filter(task => task.completed).length;
+
+    document.getElementById("pendingTasks").textContent =
+        tasks.filter(task => !task.completed).length;
+
+    document.getElementById("highPriority").textContent =
+        tasks.filter(task => task.priority === "High").length;
+
+}
+displayTasks();
+updateStats();
